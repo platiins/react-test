@@ -12,3 +12,16 @@
   font-size: 16px;
   color: darkgrey;
 }
+
+.login-container {
+  width: 500px;
+  margin: 200px auto 100px;
+}
+
+.employees-list {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 50px;
+  justify-content: center;
+  align-items: center;
+}
