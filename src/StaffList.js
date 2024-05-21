@@ -14,7 +14,7 @@ function StaffList() {
     {
       id: 108,
       username: "Employee5",
-      isActive: (false),
+      isActive: false,
       lastVisit: "11.12.2022",
     },
     {
@@ -32,7 +32,7 @@ function StaffList() {
     <ul>
       {employees.map((employee) => {
         console.log(employee);
-        return (
+        return () => (
           <li key={employee.id}>
             <EmployeeCard employee={employee} />
           </li>

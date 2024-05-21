@@ -3,10 +3,10 @@ import StaffList from "./StaffList";
 
 function Admin() {
   return (
-    <div className="employees-list">
+    <main>
+      <h1>these are our eployees:</h1>
       <StaffList />
-    </div>
+    </main>
   );
 }
-
 export default Admin;
