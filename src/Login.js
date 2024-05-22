@@ -8,7 +8,6 @@ function Login() {
   const handleLogin = (event) => {
     event.preventDefault();
     event.stopPropagation();
-    const form = event.currentTarget;
 
     let username = event.currentTarget.elements.username.value;
     let password = event.currentTarget.elements.password.value;
@@ -17,7 +16,7 @@ function Login() {
       setLoginMessage("no access due to wrong credentials");
     } else {
       setLoginMessage(
-        `successfull login! i have not learned how to make routing in React JS, so please change isLoggedIn value in Main.js in order to be redirected to Admin page`
+        `successfull login! but i have not learned how to make routing in React JS, so please change isLoggedIn value in Main.js in order to be redirected to Admin page`
       );
     }
   };
