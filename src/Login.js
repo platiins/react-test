@@ -1,33 +1,30 @@
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-// import Admin from "./Admin";
-
 import React, { useState } from "react";
-import { useNavigate } from "react-router";
 
 function Login() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
-
-  const navigate = useNavigate();
+  const [loginMessage, setLoginMessage] = useState("");
 
   const handleLogin = (event) => {
     event.preventDefault();
+    event.stopPropagation();
+    const form = event.currentTarget;
 
-    const username = event.currentTarget.elements.username.value;
-    const password = event.currentTarget.elements.password.value;
+    let username = event.currentTarget.elements.username.value;
+    let password = event.currentTarget.elements.password.value;
 
-    if (username === "admin" && password === "0000") {
-      navigate("./Admin.js");
+    if (username !== "admin" || password !== "0000") {
+      setLoginMessage("no access due to wrong credentials");
     } else {
-      setErrorMessage("No access given due to wrong credentials");
+      setLoginMessage(
+        `successfull login! i have not learned how to make routing in React JS, so please change isLoggedIn value in Main.js in order to be redirected to Admin page`
+      );
     }
   };
 
   return (
     <section className="login-container">
-      <h1>MY FAV MEMES LIBRARY</h1>
+      <h1 className="admin-title">ADMIN PANEL</h1>
       <Form onSubmit={handleLogin}>
         <Form.Group className="mb-3">
           <Form.Label>username</Form.Label>
@@ -38,8 +35,6 @@ function Login() {
             id="username"
             placeholder="enter username"
             required
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
           />
         </Form.Group>
         <Form.Group className="mb-3">
@@ -50,8 +45,6 @@ function Login() {
             type="password"
             required
             placeholder="enter password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
@@ -61,7 +54,11 @@ function Login() {
           login
         </Button>
       </Form>
-      {errorMessage && <p>{errorMessage}</p>}
+      {setLoginMessage && (
+        <div>
+          <p className="login-message">{loginMessage}</p>
+        </div>
+      )}
     </section>
   );
 }

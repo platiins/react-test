@@ -1,16 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles.scss";
 import reportWebVitals from "./reportWebVitals";
 
-import Admin from "./Admin";
+import Main from "./Main";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Admin />
+    <Main />
   </React.StrictMode>
 );
 
